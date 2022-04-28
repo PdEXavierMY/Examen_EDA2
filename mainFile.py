@@ -22,26 +22,13 @@ import numpy as np
 from introducir import solicitar_introducir_numero_extremo
 
 #--- CREACION DE UN DATAFRAME ----
-def conseguirnotas():
-    notas = pd.read_csv("data.csv", encoding = "UTF8", sep = ",")
-    notas = notas.dropna(subset=["1st"])
-    notas = notas.dropna(subset=["2nd"])
-    notas = notas.dropna(subset=["3rd"])
-    notas = notas.dropna(subset=["4th"])
-    notas = notas.dropna(subset=["5th"])
-    sem1, sem2, sem3, sem4, sem5 = list(notas["1st"]), list(notas["2nd"]), list(notas["3rd"]), list(notas["4th"]), list(notas["5th"])
-    return sem1, sem2, sem3, sem4, sem5
+def conseguirstats():
+    stats = pd.read_csv("Pokemon.csv", encoding = "UTF8", sep = ",")
+    total, hp, attack, defense, spattack, spdefense, speed = list(stats["Total"]), list(stats["HP"]), list(stats["Attack"]), list(stats["Defense"]), list(stats["Sp. Atk"]), list(stats["Sp. Atk"]), list(stats["Sp. Def"]), list(stats["Speed"])
+    return total, hp, attack, defense, spattack, spdefense, speed
 
-notas1, notas2, notas3, notas4, notas5 = conseguirnotas()
-def notasfinales(s1, s2, s3, s4, s5):
-    notasmedia = []
-    for i in range(len(s1)-1):
-        total = float(s1[i])+float(s2[i])+float(s3[i])+float(s4[i])+float(s5[i])
-        media = round((total/5), 2)
-        notasmedia.append(media)
-    return notasmedia
-medias = notasfinales(notas1, notas2, notas3, notas4, notas5)
-observaciones1, observaciones2, observaciones3, observaciones4, observaciones5, observacionestotales = pd.DataFrame({'NOTAS':np.array(notas1)}), pd.DataFrame({'NOTAS':np.array(notas2)}), pd.DataFrame({'NOTAS':np.array(notas3)}), pd.DataFrame({'NOTAS':np.array(notas4)}), pd.DataFrame({'NOTAS':np.array(notas5)}), pd.DataFrame({'NOTAS':np.array(medias)})
+total, hp, attack, defense, spattack, spdefense, speed = conseguirstats()
+observaciones1, observaciones2, observaciones3, observaciones4, observaciones5, observaciones6, observaciones7 = pd.DataFrame({'NOTAS':np.array(notas1)}), pd.DataFrame({'NOTAS':np.array(notas2)}), pd.DataFrame({'NOTAS':np.array(notas3)}), pd.DataFrame({'NOTAS':np.array(notas4)}), pd.DataFrame({'NOTAS':np.array(notas5)}), pd.DataFrame({'NOTAS':np.array(medias)}), pd.DataFrame({'NOTAS':np.array(medias)})
 
 #--- Main ---
 if __name__ == "__main__":
