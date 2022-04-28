@@ -60,6 +60,7 @@ def encontrar_pokemon():
     lpokemon1 = []
     lpokemon2 = []
     n = 1
+    m = 1
     with open("coach_1__pokemon.csv") as pokemon:
         for linea in pokemon:
             if n != 1:
@@ -71,16 +72,20 @@ def encontrar_pokemon():
             n+=1
     with open("coach_2__pokemon.csv") as pokemon:
         for linea in pokemon:
-            if n != 1:
+            if m != 1:
                 lsep = linea.split(",")
                 if 425 < int(lsep[4]) < 445: #busco la media, me voy alejando porque no hay
                     lpokemon2.append(lsep)
-                    if len(lpokemon1) == 3:
+                    if len(lpokemon2) == 3:
                         break
-            n+=1
+            m+=1
     print(lpokemon2)
     return lpokemon1, lpokemon2
 
 pokemon_entrenador1, pokemon_entrenador2 = encontrar_pokemon()
 file1 = open("coach_1_pokemon.csv", "w")
 file2 = open("coach_2_pokemon.csv", "w")
+file1.write(str(pokemon_entrenador1[0][0]+","+""+str(pokemon_entrenador1[0][1]+","+""+"headbutt"+","+""+str(pokemon_entrenador1[0][5]+","+""+str((int(pokemon_entrenador1[0][6])+int(pokemon_entrenador1[0][7]))/2)+","+""+str((int(pokemon_entrenador1[0][8])+int(pokemon_entrenador1[0][9]))/2)+"\n"+str(pokemon_entrenador1[1][0]+","+""+str(pokemon_entrenador1[1][1]+","+""+"kick"+","+""+str(pokemon_entrenador1[1][5]+","+""+str((int(pokemon_entrenador1[1][6])+int(pokemon_entrenador1[1][7]))/2)+","+""+str((int(pokemon_entrenador1[1][8])+int(pokemon_entrenador1[1][9]))/2)+"\n"+str(pokemon_entrenador1[2][0]+","+""+str(pokemon_entrenador1[2][1]+","+""+"elbow"+","+""+str(pokemon_entrenador1[2][5]+","+""+str((int(pokemon_entrenador1[2][6])+int(pokemon_entrenador1[2][7]))/2)+","+""+str((int(pokemon_entrenador1[2][8])+int(pokemon_entrenador1[2][9]))/2)+"\n"))))))))))
+file2.write(str(pokemon_entrenador2[0][0]+","+""+str(pokemon_entrenador2[0][1]+","+""+"punch"+","+""+str(pokemon_entrenador2[0][5]+","+""+str((int(pokemon_entrenador2[0][6])+int(pokemon_entrenador2[0][7]))/2)+","+""+str((int(pokemon_entrenador2[0][8])+int(pokemon_entrenador2[0][9]))/2)+"\n"+str(pokemon_entrenador2[1][0]+","+""+str(pokemon_entrenador2[1][1]+","+""+"kick"+","+""+str(pokemon_entrenador2[1][5]+","+""+str((int(pokemon_entrenador2[1][6])+int(pokemon_entrenador2[1][7]))/2)+","+""+str((int(pokemon_entrenador2[1][8])+int(pokemon_entrenador2[1][9]))/2)+"\n"+str(pokemon_entrenador2[2][0]+","+""+str(pokemon_entrenador2[2][1]+","+""+"elbow"+","+""+str(pokemon_entrenador2[2][5]+","+""+str((int(pokemon_entrenador2[2][6])+int(pokemon_entrenador2[2][7]))/2)+","+""+str((int(pokemon_entrenador2[2][8])+int(pokemon_entrenador2[2][9]))/2)+"\n"))))))))))
+file1.close()
+file2.close()
