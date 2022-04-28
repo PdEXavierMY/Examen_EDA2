@@ -49,7 +49,7 @@ def estadisticas():
     elif eleccion == 7:
         stats7.analisisCaracteristica()
 
-estadisticas() #La media de estadísitcas totales es 435
+#estadisticas() #La media de estadísitcas totales es 435
 #La media de hp es 70
 #La media de ataque es 79
 #La media de defensa es 74
@@ -57,14 +57,30 @@ estadisticas() #La media de estadísitcas totales es 435
 #La media de defensa sp es 72
 
 def encontrar_pokemon():
-    lpokemon = []
+    lpokemon1 = []
+    lpokemon2 = []
+    n = 1
     with open("coach_1__pokemon.csv") as pokemon:
         for linea in pokemon:
-            lsep = linea.split(",")
-            if lsep[4] > 440 and lsep[4] < 430:
-                lpokemon.append(lsep)
-                if len(lpokemon) == 3:
-                    break
-    print(lpokemon)
+            if n != 1:
+                lsep = linea.split(",")
+                if 425 < int(lsep[4]) < 445: #busco la media, me voy alejando porque no hay
+                    lpokemon1.append(lsep)
+                    if len(lpokemon1) == 3:
+                        break
+            n+=1
+    with open("coach_2__pokemon.csv") as pokemon:
+        for linea in pokemon:
+            if n != 1:
+                lsep = linea.split(",")
+                if 425 < int(lsep[4]) < 445: #busco la media, me voy alejando porque no hay
+                    lpokemon2.append(lsep)
+                    if len(lpokemon1) == 3:
+                        break
+            n+=1
+    print(lpokemon2)
+    return lpokemon1, lpokemon2
 
-encontrar_pokemon()
+pokemon_entrenador1, pokemon_entrenador2 = encontrar_pokemon()
+file1 = open("coach_1_pokemon.csv", "w")
+file2 = open("coach_2_pokemon.csv", "w")
