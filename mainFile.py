@@ -28,12 +28,12 @@ def conseguirstats():
     return total, hp, attack, defense, spattack, spdefense, speed
 
 total, hp, attack, defense, spattack, spdefense, speed = conseguirstats()
-observaciones1, observaciones2, observaciones3, observaciones4, observaciones5, observaciones6, observaciones7 = pd.DataFrame({'NOTAS':np.array(notas1)}), pd.DataFrame({'NOTAS':np.array(notas2)}), pd.DataFrame({'NOTAS':np.array(notas3)}), pd.DataFrame({'NOTAS':np.array(notas4)}), pd.DataFrame({'NOTAS':np.array(notas5)}), pd.DataFrame({'NOTAS':np.array(medias)}), pd.DataFrame({'NOTAS':np.array(medias)})
+observaciones1, observaciones2, observaciones3, observaciones4, observaciones5, observaciones6, observaciones7 = pd.DataFrame({'Stats':np.array(total)}), pd.DataFrame({'Stats':np.array(hp)}), pd.DataFrame({'Stats':np.array(attack)}), pd.DataFrame({'Stats':np.array(defense)}), pd.DataFrame({'Stats':np.array(spattack)}), pd.DataFrame({'Stats':np.array(spdefense)}), pd.DataFrame({'Stats':np.array(speed)})
 
 #--- Main ---
 if __name__ == "__main__":
-    eleccion = solicitar_introducir_numero_extremo("Elige de que semetre quieres la estadística(1-5), o si la quieres de una media de cada semestre(6)", 1, 6)
-    stats1, stats2, stats3, stats4, stats5, statsfinales = jmp.JMPEstadisticas(observaciones1['NOTAS']), jmp.JMPEstadisticas(observaciones2['NOTAS']), jmp.JMPEstadisticas(observaciones3['NOTAS']), jmp.JMPEstadisticas(observaciones4['NOTAS']), jmp.JMPEstadisticas(observaciones5['NOTAS']), jmp.JMPEstadisticas(observacionestotales['NOTAS'])
+    eleccion = solicitar_introducir_numero_extremo("Elige de que stat quieres la estadística(el total(1), hp(2), attack(3), defense(4), sp.attack(5), sp.defense(6)", 1, 7)
+    stats1, stats2, stats3, stats4, stats5, stats6, stats7 = jmp.JMPEstadisticas(observaciones1['Stats']), jmp.JMPEstadisticas(observaciones2['Stats']), jmp.JMPEstadisticas(observaciones3['Stats']), jmp.JMPEstadisticas(observaciones4['Stats']), jmp.JMPEstadisticas(observaciones5['Stats']), jmp.JMPEstadisticas(observaciones6['Stats']), jmp.JMPEstadisticas(observaciones7['Stats'])
     if eleccion == 1:
         stats1.analisisCaracteristica()
     elif eleccion == 2:
@@ -45,4 +45,6 @@ if __name__ == "__main__":
     elif eleccion == 5:
         stats5.analisisCaracteristica()
     elif eleccion == 6:
-        statsfinales.analisisCaracteristica()
+        stats6.analisisCaracteristica()
+    elif eleccion == 7:
+        stats7.analisisCaracteristica()
