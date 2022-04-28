@@ -30,8 +30,8 @@ def conseguirstats():
 total, hp, attack, defense, spattack, spdefense, speed = conseguirstats()
 observaciones1, observaciones2, observaciones3, observaciones4, observaciones5, observaciones6, observaciones7 = pd.DataFrame({'Stats':np.array(total)}), pd.DataFrame({'Stats':np.array(hp)}), pd.DataFrame({'Stats':np.array(attack)}), pd.DataFrame({'Stats':np.array(defense)}), pd.DataFrame({'Stats':np.array(spattack)}), pd.DataFrame({'Stats':np.array(spdefense)}), pd.DataFrame({'Stats':np.array(speed)})
 
-#--- Main ---
-if __name__ == "__main__":
+#--- Estadisticas ---
+def estadisticas():
     eleccion = solicitar_introducir_numero_extremo("Elige de que stat quieres la estadística(el total(1), hp(2), attack(3), defense(4), sp.attack(5), sp.defense(6)", 1, 7)
     stats1, stats2, stats3, stats4, stats5, stats6, stats7 = jmp.JMPEstadisticas(observaciones1['Stats']), jmp.JMPEstadisticas(observaciones2['Stats']), jmp.JMPEstadisticas(observaciones3['Stats']), jmp.JMPEstadisticas(observaciones4['Stats']), jmp.JMPEstadisticas(observaciones5['Stats']), jmp.JMPEstadisticas(observaciones6['Stats']), jmp.JMPEstadisticas(observaciones7['Stats'])
     if eleccion == 1:
@@ -48,3 +48,5 @@ if __name__ == "__main__":
         stats6.analisisCaracteristica()
     elif eleccion == 7:
         stats7.analisisCaracteristica()
+
+estadisticas()
