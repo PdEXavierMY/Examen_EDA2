@@ -24,7 +24,7 @@ from introducir import solicitar_introducir_numero_extremo
 #--- CREACION DE UN DATAFRAME ----
 def conseguirstats():
     stats = pd.read_csv("Pokemon.csv", encoding = "UTF8", sep = ",")
-    total, hp, attack, defense, spattack, spdefense, speed = list(stats["Total"]), list(stats["HP"]), list(stats["Attack"]), list(stats["Defense"]), list(stats["Sp. Atk"]), list(stats["Sp. Atk"]), list(stats["Sp. Def"]), list(stats["Speed"])
+    total, hp, attack, defense, spattack, spdefense, speed = list(stats["Total"]), list(stats["HP"]), list(stats["Attack"]), list(stats["Defense"]), list(stats["Sp. Atk"]), list(stats["Sp. Def"]), list(stats["Speed"])
     return total, hp, attack, defense, spattack, spdefense, speed
 
 total, hp, attack, defense, spattack, spdefense, speed = conseguirstats()
