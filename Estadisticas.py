@@ -55,3 +55,16 @@ estadisticas() #La media de estadísitcas totales es 435
 #La media de defensa es 74
 #La media de ataque sp es 73
 #La media de defensa sp es 72
+
+def encontrar_pokemon():
+    lpokemon = []
+    with open("coach_1__pokemon.csv") as pokemon:
+        for linea in pokemon:
+            lsep = linea.split(",")
+            if lsep[4] > 440 and lsep[4] < 430:
+                lpokemon.append(lsep)
+                if len(lpokemon) == 3:
+                    break
+    print(lpokemon)
+
+encontrar_pokemon()
