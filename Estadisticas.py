@@ -49,7 +49,7 @@ def estadisticas():
     elif eleccion == 7:
         stats7.analisisCaracteristica()
 
-#estadisticas() #La media de estadísitcas totales es 435
+estadisticas() #La media de estadísitcas totales es 435
 #La media de hp es 70
 #La media de ataque es 79
 #La media de defensa es 74

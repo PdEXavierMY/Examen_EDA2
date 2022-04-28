@@ -62,13 +62,12 @@ def get_data_from_user(name_file):
     result= []
     for line in file.readlines():
       data= line.split(",")
-      id= int(data[0])
       name= data[1]
       weapon= WeaponType[data[2].upper()]
       health= int(data[3])
       attack= int(data[4])
       defense= int(data[5])
-      pokemon= Pokemon(id,name,weapon,health,attack,defense)
+      pokemon= Pokemon(name,weapon,health,attack,defense)
       result.append(pokemon)
     return result
 
@@ -186,17 +185,13 @@ def main():
 
     # Choose first pokemons
     copy1= get_pokemon_in_a_list_of_pokemons(1,copy1)
-    id= int(input(""))
     pokemon1= None
     for pokemon in copy1:
-      if pokemon.get_id()==id:
         pokemon1= pokemon
 
     copy2= get_pokemon_in_a_list_of_pokemons(2,copy2)
-    id= int(input(""))
     pokemon2= None
     for pokemon in copy2:
-      if pokemon.get_id()==id:
         pokemon2= pokemon
 
     # Main loop.
@@ -204,17 +199,13 @@ def main():
     while coach_is_undefeated(copy1) and coach_is_undefeated(copy2):
       if not pokemon1.is_alive():
         copy1= get_pokemon_in_a_list_of_pokemons(1,copy1)
-        id= int(input(""))
         pokemon1= None
         for pokemon in copy1:
-          if pokemon.get_id()==id:
             pokemon1= pokemon
       if not pokemon2.is_alive():
         copy2= get_pokemon_in_a_list_of_pokemons(2,copy2)
-        id= int(input(""))
         pokemon2= None
         for pokemon in copy2:
-          if pokemon.get_id()==id:
             pokemon2= pokemon
       pokemon1.fight_attack(pokemon2)
       pokemon2.fight_attack(pokemon1)
